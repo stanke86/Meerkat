@@ -10,3 +10,8 @@
      steps:
        - checkout
        - run: dotnet build
+       - run:
+           name: "Tests"
+           command: dotnet test
+       - store_test_results:
+           path: test-results
