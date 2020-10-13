@@ -13,3 +13,5 @@
        - run:
            name: "Tests"
            command: dotnet test
+       - store_test_results:
+           path: test-results
