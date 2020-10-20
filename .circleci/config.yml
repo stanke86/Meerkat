@@ -12,6 +12,6 @@
        - run: dotnet build
        - run:
            name: "Tests"
-           command: dotnet test -r test-results --collect:"XPlat Code Coverage"
+           command: dotnet test --l:trx;LogFileName=test-results\TestOutput.xml
        - store_test_results:
            path: test-results
