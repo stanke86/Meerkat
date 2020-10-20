@@ -12,6 +12,8 @@
        - run: dotnet build
 
    test:
+     executor: win/default
+     
      steps:
        - run:
            name: "Tests"
@@ -20,8 +22,7 @@
            path: test-results
            
 workflows:
-  version:2.1
-  build-and-test:
+  build_and_test:
     jobs:
       - build
       - test:
