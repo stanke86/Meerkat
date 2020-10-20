@@ -20,11 +20,12 @@
            command: dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=../test-results/TestOutput.xml"
        - store_test_results:
            path: test-results
-           
-workflows:
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+
+#...           
+  workflows:
+    build_and_test:
+      jobs:
+        - build
+        - test:
+            requires:
+              - build
