@@ -10,8 +10,20 @@
      steps:
        - checkout
        - run: dotnet build
+
+   test:
+     steps:
        - run:
            name: "Tests"
            command: dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=../test-results/TestOutput.xml"
        - store_test_results:
            path: test-results
+           
+workflows:
+  version:2.1
+  build-and-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
